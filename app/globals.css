@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to clean white background with blue accents for political campaign */
+  --background: oklch(1 0 0); /* Pure white background */
+  --foreground: oklch(0.15 0.02 240); /* Dark blue-gray text */
+  --card: oklch(0.98 0.01 240); /* Very light blue-tinted card background */
+  --card-foreground: oklch(0.15 0.02 240); /* Dark text on cards */
+  --popover: oklch(1 0 0); /* White popover background */
+  --popover-foreground: oklch(0.15 0.02 240); /* Dark text on popovers */
+  --primary: oklch(0.55 0.15 240); /* Professional blue primary */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --secondary: oklch(0.45 0.12 220); /* Darker blue secondary */
+  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
+  --muted: oklch(0.95 0.01 240); /* Light gray-blue muted background */
+  --muted-foreground: oklch(0.45 0.02 240); /* Medium blue-gray text */
+  --accent: oklch(0.65 0.18 200); /* Bright blue accent */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0.01 27.325);
+  --border: oklch(0.85 0.02 240); /* Light blue-gray border */
+  --input: oklch(0.98 0.01 240); /* Very light input background */
+  --ring: oklch(0.55 0.15 240); /* Blue focus ring */
+  --chart-1: oklch(0.55 0.15 240);
+  --chart-2: oklch(0.45 0.12 220);
+  --chart-3: oklch(0.65 0.18 200);
+  --chart-4: oklch(0.35 0.08 260);
+  --chart-5: oklch(0.75 0.12 180);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.98 0.01 240);
+  --sidebar-foreground: oklch(0.15 0.02 240);
+  --sidebar-primary: oklch(0.55 0.15 240);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.18 200);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.85 0.02 240);
+  --sidebar-ring: oklch(0.55 0.15 240);
+}
+
+.dark {
+  /* Keeping dark mode but with cleaner blue tones */
+  --background: oklch(0.05 0.02 240);
+  --foreground: oklch(0.95 0.02 200);
+  --card: oklch(0.08 0.03 240);
+  --card-foreground: oklch(0.92 0.02 200);
+  --primary: oklch(0.65 0.15 240);
+  --secondary: oklch(0.55 0.12 220);
+  --accent: oklch(0.75 0.18 200);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added futuristic animations and neon glow effects */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes neonGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes neonBorder {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 15px var(--color-accent);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 30px var(--color-accent);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gentleGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.neon-glow {
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+.neon-border {
+  animation: neonBorder 2s ease-in-out infinite;
+}
+
+.gentle-glow {
+  animation: gentleGlow 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Custom gradient backgrounds for futuristic feel */
+.gradient-bg {
+  background: linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.98 0.01 240) 50%, oklch(0.95 0.01 240) 100%);
+}
+
+.neon-text {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.cyber-grid {
+  background-image: linear-gradient(rgba(101, 33, 168, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 33, 168, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.professional-text {
+  color: var(--color-primary);
+}
+
+.clean-grid {
+  background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
